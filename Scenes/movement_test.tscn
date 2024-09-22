@@ -1,28 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://d23lmpgr81fue"]
+[gd_scene load_steps=4 format=3 uid="uid://d23lmpgr81fue"]
 
+[ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_7vxd8"]
 [ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="1_86avn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yahqm"]
-size = Vector2(39, 39)
+size = Vector2(245632, 15513)
 
 [node name="MovementTest" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -4971.0
-offset_top = -2645.0
-offset_right = 8664.0
-offset_bottom = 255.0
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(-10328, -12067)
+scale = Vector2(1, 2.11641)
+texture = ExtResource("1_7vxd8")
+polygon = PackedVector2Array(184810, 11167.9, 142954, -14596.4, -91926, -18527.6, -87318, 9534.99)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(20.5, 20.5)
+position = Vector2(48516, 7757.5)
 shape = SubResource("RectangleShape2D_yahqm")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -6191.0
-offset_right = 5084.0
-offset_bottom = 2383.0
+offset_left = -96902.0
+offset_top = 1.0
+offset_right = 96937.0
+offset_bottom = 22195.0
 color = Color(0, 0.580392, 0.160784, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_86avn")]
