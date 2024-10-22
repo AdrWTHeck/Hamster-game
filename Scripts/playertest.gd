@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -700.0
 const FRICTION = 100.0  # Friction rate
 const MAX_SPEED = 1200.0  # Maximum speed (2 times the initial speed)
 const ACCELERATION_TIME = 5.0  # Time to reach MAX_SPEED in seconds
@@ -12,7 +12,9 @@ var speed = 300.0  # Initial speed
 var is_accelerating = false  # Flag to track acceleration
 var acceleration_timer = 0.0  # Timer for acceleration
 
+
 func _physics_process(delta):
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta

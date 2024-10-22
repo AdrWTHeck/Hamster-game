@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://d23lmpgr81fue"]
+[gd_scene load_steps=6 format=3 uid="uid://d23lmpgr81fue"]
 
 [ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_7vxd8"]
 [ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="1_86avn"]
+[ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="2_l563d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yahqm"]
 size = Vector2(245632, 15513)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwrch"]
+size = Vector2(583, 60)
 
 [node name="MovementTest" type="Node2D"]
 
@@ -16,6 +20,8 @@ texture = ExtResource("1_7vxd8")
 polygon = PackedVector2Array(184810, 11167.9, 142954, -14596.4, -91926, -18527.6, -87318, 9534.99)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(48516, 7757.5)
@@ -32,3 +38,20 @@ color = Color(0, 0.580392, 0.160784, 1)
 position = Vector2(1, -29)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="Enemy_test" parent="." instance=ExtResource("2_l563d")]
+position = Vector2(173, -221)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(396.5, -128)
+shape = SubResource("RectangleShape2D_lwrch")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = 102.0
+offset_top = -162.0
+offset_right = 689.0
+offset_bottom = -90.0
