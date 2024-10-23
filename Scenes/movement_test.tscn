@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d23lmpgr81fue"]
+[gd_scene load_steps=6 format=3 uid="uid://d23lmpgr81fue"]
 
 [ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_7vxd8"]
 [ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="1_86avn"]
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="2_l563d"]
-[ext_resource type="Script" path="res://Scripts/ShowVelocity.gd" id="3_7c2tr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yahqm"]
 size = Vector2(245632, 15513)
@@ -45,7 +44,6 @@ offset_left = -548.0
 offset_top = -297.0
 offset_right = -300.0
 offset_bottom = -124.0
-script = ExtResource("3_7c2tr")
 metadata/_edit_use_anchors_ = true
 
 [node name="Enemy_test" parent="." instance=ExtResource("2_l563d")]

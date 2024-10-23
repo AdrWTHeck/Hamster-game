@@ -14,10 +14,9 @@ var acceleration_timer = 0.0  # Timer for acceleration
 @onready var show_velocity = $ShowVelocity #This is the text edit box
 
 
-
 func _physics_process(delta):
 	show_velocity.text = str(velocity.x) #Displays current velocity
-
+	print(velocity.x)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -28,7 +27,11 @@ func _physics_process(delta):
 
 	# Get the input direction and handle movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
-
+	if Input.is_action_pressed("ui_left"):
+		$Sprite2D.scale.x = -1
+	if Input.is_action_pressed("ui_right"):
+		$Sprite2D.scale.x = 1
+	
 	# Apply acceleration
 	if direction != 0:
 		if not is_accelerating:
