@@ -11,9 +11,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed = 300.0  # Initial speed
 var is_accelerating = false  # Flag to track acceleration
 var acceleration_timer = 0.0  # Timer for acceleration
+@onready var show_velocity = $ShowVelocity #This is the text edit box
+
 
 
 func _physics_process(delta):
+	show_velocity.text = str(velocity.x) #Displays current velocity
 
 	# Add the gravity.
 	if not is_on_floor():
