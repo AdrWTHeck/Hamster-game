@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="2_l563d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yahqm"]
-size = Vector2(245632, 15513)
+size = Vector2(268604, 15513)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwrch"]
 size = Vector2(583, 60)
@@ -20,17 +20,15 @@ texture = ExtResource("1_7vxd8")
 polygon = PackedVector2Array(184810, 11167.9, 142954, -14596.4, -91926, -18527.6, -87318, 9534.99)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 7
-collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(48516, 7757.5)
+position = Vector2(37030, 7757.5)
 shape = SubResource("RectangleShape2D_yahqm")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_left = -96902.0
 offset_top = 1.0
-offset_right = 96937.0
+offset_right = 171177.0
 offset_bottom = 22195.0
 color = Color(0, 0.580392, 0.160784, 1)
 
@@ -50,8 +48,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(173, -221)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_layer = 7
-collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(396.5, -128)
