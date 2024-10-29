@@ -13,7 +13,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	$RayCast2D.enabled = true
-	$RayCast2D2.enabled = true
 	
 
 func _physics_process(delta):

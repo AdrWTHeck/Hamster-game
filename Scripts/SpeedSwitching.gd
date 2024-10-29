@@ -12,13 +12,14 @@ var speed = 300.0  # Initial speed
 var is_accelerating = false  # Flag to track acceleration
 var acceleration_timer = 0.0  # Timer for acceleration
 
-@onready var show_velocity = $ShowVelocity #This is the text edit box
+@onready var show_velocity = $TextEdit #This is the text edit box
 @onready var enemy_test = $"../Enemy_test"
 
 
 
 func _physics_process(delta):
 
+	
 	show_velocity.text = str(velocity.x) #Displays current velocity
 	
 	#Displays current velocity in output below when velocity.x is not showing 0
@@ -30,30 +31,27 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta + 1
+		velocity.y += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 
-	# Get the input direction and handle movement/deceleration.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if Input.is_action_pressed("ui_left"):
-		$Sprite2D.scale.x = -1
-	if Input.is_action_pressed("ui_right"):
-		$Sprite2D.scale.x = 1
+	var direction = Vector2(1,0)
 	
+	if show_velocity.text == "0":
+		direction = -direction
 
 	 #Apply acceleration
-	if direction != 0:
+	if direction.x != 0:
 		if not is_accelerating:
 			speed = 300.0  # Reset speed when starting acceleration
 			is_accelerating = true
 			acceleration_timer = 0.0  # Reset acceleration timer
 
 
-		velocity.x = direction * speed
+		velocity.x = direction.x * speed
 		acceleration_timer += delta
 		if acceleration_timer <= ACCELERATION_TIME:
 			# Calculate speed increase based on time elapsed
