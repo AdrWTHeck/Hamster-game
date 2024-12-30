@@ -4,17 +4,19 @@ const JUMP_VELOCITY = -700.0
 const FRICTION = 100.0  # Friction rate
 const MAX_SPEED = 1200.0  # Maximum speed (4 times the initial speed)
 const ACCELERATION_TIME = 5.0  # Time to reach MAX_SPEED in seconds
-
+const PUSH_FORCE = 15.0
+const MIN_PUSH_FORCE = 5.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var speed = 300.0  # Initial speed
 var is_accelerating = false  # Flag to track acceleration
 var acceleration_timer = 0.0  # Timer for acceleration
+var direction = 0.0
 
 @onready var show_velocity = $ShowVelocity #This is the text edit box
 @onready var enemy_test = $"../Enemy_test"
-
+@onready var animation = $AnimationPlayer
 
 
 func _physics_process(delta):
@@ -38,11 +40,15 @@ func _physics_process(delta):
 
 
 	# Get the input direction and handle movement/deceleration.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	direction = Input.get_axis("ui_left", "ui_right")
 	if Input.is_action_pressed("ui_left"):
 		$Sprite2D.scale.x = -1
+		animation.play("walk")
 	if Input.is_action_pressed("ui_right"):
 		$Sprite2D.scale.x = 1
+		animation.play("walk")
+	if not is_accelerating:
+		animation.play("idle right")
 	
 
 	 #Apply acceleration
@@ -70,3 +76,12 @@ func _physics_process(delta):
 			velocity.x = direction/FRICTION
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			var push_force = (PUSH_FORCE*velocity.length() / MAX_SPEED) + MIN_PUSH_FORCE
+			c.get_collider().apply_central_impulse(-c.get_normal()*push_force)
+
+	
+	
