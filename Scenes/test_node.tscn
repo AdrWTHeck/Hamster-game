@@ -15,3 +15,6 @@ texture = ExtResource("1_b10up")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0i6pa")
 debug_color = Color(0, 0.568627, 0.854902, 0.345098)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(30.4, 0)

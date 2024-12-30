@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d23lmpgr81fue"]
 
 [ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_7vxd8"]
-[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="1_86avn"]
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="2_l563d"]
+[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="3_fhxr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yahqm"]
 size = Vector2(268604, 15513)
@@ -32,20 +32,8 @@ offset_right = 171177.0
 offset_bottom = 22195.0
 color = Color(0, 0.580392, 0.160784, 1)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_86avn")]
-position = Vector2(1, -29)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
-[node name="ShowVelocity" type="TextEdit" parent="CharacterBody2D"]
-offset_left = -548.0
-offset_top = -297.0
-offset_right = -300.0
-offset_bottom = -124.0
-metadata/_edit_use_anchors_ = true
-
 [node name="Enemy_test" parent="." instance=ExtResource("2_l563d")]
-position = Vector2(173, -221)
+position = Vector2(162, -230)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
@@ -58,3 +46,16 @@ offset_left = 102.0
 offset_top = -162.0
 offset_right = 689.0
 offset_bottom = -90.0
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_fhxr3")]
+position = Vector2(0, -33)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-58, -62)
+
+[node name="ShowVelocity" type="TextEdit" parent="CharacterBody2D"]
+offset_left = -606.0
+offset_top = -359.0
+offset_right = -358.0
+offset_bottom = -186.0
+metadata/_edit_use_anchors_ = true

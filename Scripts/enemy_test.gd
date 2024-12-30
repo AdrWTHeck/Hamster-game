@@ -1,21 +1,49 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
+var SPEED = 200
 var direction = Vector2(-1,0)
 
 const JUMP_VELOCITY = -400.0
+
+var attacking = false
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
+
+
 func _ready():
-	$RayCast2D.enabled = true
 	
+	$AttackZone.connect("body_entered",_on_body_entered,CONNECT_PERSIST)
+	$RayCast2D.enabled = true
+
+	
+func _on_body_entered(body):
+
+	if body is CharacterBody2D:
+		attacking = true
+		$AttackZone.set_collision_layer_value(1,false)
 
 func _physics_process(delta):
+	if attacking == true:
+
+		SPEED = 0
+		
+		$AttackZone/Timer.wait_time = 1
+		
+		SPEED = move_toward(SPEED,200,50)
+		
+		$AttackZone/Timer.wait_time = 1
+		SPEED = 200
+		if SPEED == 200:
+			attacking = false
+			
+			$AttackZone/Timer.wait_time = 1
+			$AttackZone.set_collision_layer_value(1,true)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
