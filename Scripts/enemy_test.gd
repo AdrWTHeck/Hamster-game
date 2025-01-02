@@ -16,7 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready():
-	
+	direction = -direction
 	$AttackZone.connect("body_entered",_on_body_entered,CONNECT_PERSIST)
 	$RayCast2D.enabled = true
 
@@ -29,25 +29,26 @@ func _on_body_entered(body):
 
 func _physics_process(delta):
 	if attacking == true:
-
+		
 		SPEED = 0
+		await get_tree().create_timer(1).timeout
+
+		SPEED = 600
 		
-		$AttackZone/Timer.wait_time = 1
-		
-		SPEED = move_toward(SPEED,200,50)
-		
-		$AttackZone/Timer.wait_time = 1
+		await get_tree().create_timer(1).timeout
+		SPEED = 0
+		await get_tree().create_timer(1).timeout
 		SPEED = 200
 		if SPEED == 200:
 			attacking = false
 			
-			$AttackZone/Timer.wait_time = 1
+			await get_tree().create_timer(5).timeout
 			$AttackZone.set_collision_layer_value(1,true)
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		$".".scale.x = -$".".scale.x
+		
 	if not $RayCast2D.is_colliding():
 		direction = -direction
 		$".".scale.x = -$".".scale.x

@@ -32,5 +32,3 @@ position = Vector2(50, 0)
 rotation = -1.5708
 scale = Vector2(5, 10.4919)
 shape = SubResource("SeparationRayShape2D_rtuy1")
-
-[node name="Timer" type="Timer" parent="AttackZone"]

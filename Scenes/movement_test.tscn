@@ -33,7 +33,7 @@ offset_bottom = 22195.0
 color = Color(0, 0.580392, 0.160784, 1)
 
 [node name="Enemy_test" parent="." instance=ExtResource("2_l563d")]
-position = Vector2(162, -230)
+position = Vector2(-650, -41)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
