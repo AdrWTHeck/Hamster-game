@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmesqmap5d5r5"]
+
+[ext_resource type="Script" path="res://Scripts/Ai_made_code_test.gd" id="1_302o4"]
+[ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_nafiv"]
+[ext_resource type="Texture2D" uid="uid://c6hpy4k1pv0fd" path="res://Sprites/IMG_0599.PNG" id="2_o6e2h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yf0w"]
+radius = 29.4279
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v7wd"]
+size = Vector2(381116, 7963)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32a4p"]
+size = Vector2(119, 105)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(27477.1, -0.00390625)
+scale = Vector2(1.15158, 1)
+texture = ExtResource("1_nafiv")
+polygon = PackedVector2Array(-219702, 2066, -195693, -30926, 100577, -31300, 86861.1, 2346, 20661.8, 1989)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_302o4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_1yf0w")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_o6e2h")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="TextEdit" type="TextEdit" parent="CharacterBody2D"]
+offset_left = -546.0
+offset_top = -291.0
+offset_right = -343.0
+offset_bottom = -191.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -232669.0
+offset_top = 38.0
+offset_right = 174993.0
+offset_bottom = 7758.0
+color = Color(0, 0.886275, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-17818, 4016.5)
+shape = SubResource("RectangleShape2D_5v7wd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = -308.0
+offset_top = -59.0
+offset_right = -187.0
+offset_bottom = 46.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-247.5, -4.5)
+shape = SubResource("RectangleShape2D_32a4p")

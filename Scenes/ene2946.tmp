@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7fcg4ysegjot"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_test.gd" id="1_inqqj"]
+[ext_resource type="Texture2D" uid="uid://c8bceepc4scnx" path="res://Sprites/tempEnemy.JPG" id="1_t2ec1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df1wy"]
+size = Vector2(128.542, 108.346)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nes3d"]
+size = Vector2(34.7059, 26.9649)
+
+[node name="Enemy_test" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_inqqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t2ec1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.297781, -0.113298)
+shape = SubResource("RectangleShape2D_df1wy")
+
+[node name="AttackZone" type="Area2D" parent="."]
+scale = Vector2(1, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+position = Vector2(209.608, 3.33474)
+rotation = -1.5708
+scale = Vector2(5, 10.4919)
+shape = SubResource("RectangleShape2D_nes3d")
+disabled = true
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+position = Vector2(89.0388, 0.0143127)
+enabled = false
+target_position = Vector2(0, 100)
