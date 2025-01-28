@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 
+
 const SPEED = 200.0
 var direction = Vector2(1,0)
 
