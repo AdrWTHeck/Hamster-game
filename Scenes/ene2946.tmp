@@ -13,32 +13,24 @@ size = Vector2(34.7059, 26.9649)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_inqqj")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t2ec1")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.297781, -0.113298)
 shape = SubResource("RectangleShape2D_df1wy")
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -59.0
-offset_top = -93.0
-offset_right = 55.0
-offset_bottom = -59.0
-
-[node name="Direction_Switch" type="Node2D" parent="."]
-
-[node name="RayCastDown" type="RayCast2D" parent="Direction_Switch"]
-position = Vector2(62.1687, -4.22832)
-enabled = false
-target_position = Vector2(0, 100)
-
-[node name="Sprite2D" type="Sprite2D" parent="Direction_Switch"]
-texture = ExtResource("1_t2ec1")
-
-[node name="AttackZone" type="Area2D" parent="Direction_Switch"]
+[node name="AttackZone" type="Area2D" parent="."]
 scale = Vector2(1, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_Switch/AttackZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(209.608, 3.33474)
 rotation = -1.5708
 scale = Vector2(5, 10.4919)
 shape = SubResource("RectangleShape2D_nes3d")
 disabled = true
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+position = Vector2(89.0388, 0.0143127)
+enabled = false
+target_position = Vector2(0, 100)
