@@ -1,16 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7fcg4ysegjot"]
+[gd_scene load_steps=7 format=3 uid="uid://c7fcg4ysegjot"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_test.gd" id="1_inqqj"]
-[ext_resource type="Texture2D" uid="uid://c8bceepc4scnx" path="res://Sprites/tempEnemy.JPG" id="1_t2ec1"]
-
-[sub_resource type="Animation" id="Animation_l16fj"]
-resource_name = "run"
 
 [sub_resource type="Animation" id="Animation_1sykk"]
 resource_name = "attack"
 
 [sub_resource type="Animation" id="Animation_3mvpn"]
 resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_l16fj"]
+resource_name = "run"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n1od3"]
 _data = {
@@ -28,7 +27,6 @@ script = ExtResource("1_inqqj")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.5344, 1.25)
 scale = Vector2(0.62844, 0.62844)
-texture = ExtResource("1_t2ec1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
