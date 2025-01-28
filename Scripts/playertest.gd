@@ -14,14 +14,22 @@ var is_accelerating = false  # Flag to track acceleration
 var acceleration_timer = 0.0  # Timer for acceleration
 var direction = 0.0
 
-@onready var show_velocity = $ShowVelocity #This is the text edit box
+var health_points = 3
+
+@onready var text_box = $TextEdit #This is the text edit box
 @onready var enemy_test = $"../Enemy_test"
 @onready var animation = $AnimationPlayer
 
+func _ready():
+	$Direction_Switch/AttackZone.connect("body_entered",_on_body_entered,CONNECT_PERSIST)
+
+func _on_body_entered(body):
+	if body is CharacterBody2D:
+		health_points -= 1
 
 func _physics_process(delta):
 
-	show_velocity.text = str(velocity.x) #Displays current velocity
+	text_box.text = str(health_points) #Displays health_points variable
 	
 	#Displays current velocity in output below when velocity.x is not showing 0
 	if velocity.x != 0:
@@ -42,14 +50,15 @@ func _physics_process(delta):
 	# Get the input direction and handle movement/deceleration.
 	direction = Input.get_axis("ui_left", "ui_right")
 	if Input.is_action_pressed("ui_left"):
-		$Sprite2D.scale.x = -1
+		$Direction_Switch.scale.x = -1
 		animation.play("walk")
 	if Input.is_action_pressed("ui_right"):
-		$Sprite2D.scale.x = 1
+		$Direction_Switch.scale.x = 1
 		animation.play("walk")
 	if not is_accelerating:
 		animation.play("idle right")
-	
+	if Input.is_action_pressed("ui_down"):
+		animation.play("Player_Test_Attack")
 
 	 #Apply acceleration
 	if direction != 0:

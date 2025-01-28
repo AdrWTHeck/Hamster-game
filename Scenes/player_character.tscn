@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b73awtafuget8"]
 
-[ext_resource type="Texture2D" uid="uid://c6hpy4k1pv0fd" path="res://Sprites/IMG_0599.PNG" id="1_b10up"]
 [ext_resource type="Script" path="res://Scripts/playertest.gd" id="1_fgrdf"]
+[ext_resource type="Texture2D" uid="uid://cu01atocjxvk2" path="res://Sprites/IMG_0599 (1).PNG" id="2_6x31y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0i6pa"]
 radius = 29.2746
@@ -20,7 +20,7 @@ tracks/0/path = NodePath("Direction_Switch/Node2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.03, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 2.0944, 0.0]
@@ -32,7 +32,7 @@ tracks/1/path = NodePath("Direction_Switch/AttackZone/CollisionShape2D:disabled"
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.11),
+"times": PackedFloat32Array(0, 0.03),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -71,7 +71,7 @@ debug_color = Color(0, 0.568627, 0.854902, 0.345098)
 [node name="Direction_Switch" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Direction_Switch"]
-texture = ExtResource("1_b10up")
+texture = ExtResource("2_6x31y")
 
 [node name="RayCast2D" type="RayCast2D" parent="Direction_Switch"]
 target_position = Vector2(30, 0)

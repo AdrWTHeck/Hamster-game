@@ -16,7 +16,7 @@ func _ready():
 	$Direction_Switch/RayCastDown.enabled = true
 	
 func _physics_process(delta):
-	$TextEdit.text = str(health_points)
+	$Health_points.text = str(health_points)
 	
 	# Add the gravity.
 	if not is_on_floor():
