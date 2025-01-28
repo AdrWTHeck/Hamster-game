@@ -15,7 +15,7 @@ position = Vector2(4, -55)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture_repeat = 2
-position = Vector2(-10328, -12067)
+position = Vector2(-10333, -12074)
 scale = Vector2(1, 2.11641)
 texture = ExtResource("3_d22wr")
 polygon = PackedVector2Array(184810, 11167.9, 142954, -14596.4, -91926, -18527.6, -87318, 9534.99)

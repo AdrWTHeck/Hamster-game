@@ -1,55 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d23lmpgr81fue"]
+[gd_scene load_steps=4 format=3 uid="uid://d23lmpgr81fue"]
 
-[ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_7vxd8"]
+[ext_resource type="Texture2D" uid="uid://byndok5crppb5" path="res://Sprites/icon.svg" id="1_7vxd8"]
 [ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="1_86avn"]
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="2_l563d"]
-[ext_resource type="Texture2D" uid="uid://f60635a12n20" path="res://art resources/IMG_0771.PNG" id="4_1my5n"]
-[ext_resource type="Texture2D" uid="uid://1vtghfg5prp8" path="res://art resources/pngegg.png" id="5_nkbw4"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7m7h"]
-texture = ExtResource("4_1my5n")
-margins = Vector2i(1, 4)
-separation = Vector2i(47, 45)
-texture_region_size = Vector2i(106, 106)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-51.5, -51.5, 52.5, -52, 52.5, 51.5, -51, 54)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-52.75, -49, 53.25, -48.5, 53.25, 54.5, -51.75, 53)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="TileSet" id="TileSet_3rt2v"]
-physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_e7m7h")
 
 [node name="MovementTest" type="Node2D"]
 
@@ -68,7 +21,6 @@ mass = 0.16
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 position = Vector2(-7, -68)
 scale = Vector2(0.154375, 0.1375)
-texture = ExtResource("5_nkbw4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
 polygon = PackedVector2Array(22, -46, 28, -42, 22, -37, 13, -32, 2, -26, -11, -28, -26, -30, -33, -37, -42, -42, -48, -54, -52, -71, -47, -91, -40, -98, -23, -108, -9, -112, -3, -111, 8, -109, 20, -103, 25, -99, 30, -91, 35, -85, 39, -69, 37, -61, 36, -54, 33, -46, 32, -46, 25, -50, 31, -60, 31, -75, 29, -86, 25, -92, 15, -97, 7, -101, 0, -103, -10, -103, -26, -97, -33, -91, -40, -84, -43, -75, -44, -57, -39, -51, -23, -41, -10, -37, -1, -40, 9, -40, 15, -43)
@@ -90,13 +42,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Enemy_test" parent="." instance=ExtResource("2_l563d")]
 position = Vector2(163, -197)
-
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(1, 1)
-tile_set = SubResource("TileSet_3rt2v")
-format = 2
-layer_0/name = "background"
-layer_1/name = "terrain"
-layer_1/tile_data = PackedInt32Array(262143, 65538, 0, 196613, 65538, 0, 196619, 65538, 0, 196625, 65538, 0, 262137, 65538, 0, 262131, 65538, 0, 262127, 65538, 0, 196631, 65538, 0, -458743, 2, 0, -458737, 65538, 0, -458736, 65538, 0, -458735, 65538, 0, -458734, 65538, 0, -458733, 65538, 0, -458732, 65538, 0, -458731, 65538, 0, -458730, 65538, 0, -458729, 65538, 0, -458728, 65538, 0, -458727, 65538, 0, -458726, 65538, 0, -458725, 65538, 0, -458724, 65538, 0, -458723, 65538, 0, -458718, 131074, 0)
-layer_2/name = "decor"
-layer_2/tile_data = PackedInt32Array()
