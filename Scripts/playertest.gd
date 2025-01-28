@@ -24,7 +24,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is CharacterBody2D:
-		$Enemy_test.health_points -= 1
+		health_points -= 1
 
 
 func _physics_process(delta):
