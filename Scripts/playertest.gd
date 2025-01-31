@@ -53,6 +53,11 @@ func _physics_process(delta):
 	if velocity.x != 0:
 		print(velocity.x)
 
+# Running will damage enemies at certain speeds
+	if speed >= 700:
+		$Direction_Switch/AttackZone/CollisionShape2D.disabled = false
+	if (speed <= 700) and (speed >= 400):
+		$Direction_Switch/AttackZone/CollisionShape2D.disabled = true
 	
 	# Add the gravity.
 	if not is_on_floor():
