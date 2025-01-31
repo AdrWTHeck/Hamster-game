@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://phmgtne8cq2v"]
+[gd_scene load_steps=6 format=3 uid="uid://phmgtne8cq2v"]
 
 [ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_045nu"]
 [ext_resource type="Script" path="res://Scripts/bird_enemy.gd" id="1_cp4sd"]
+[ext_resource type="Script" path="res://Scripts/Damageable.gd" id="3_s5g3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bohep"]
 size = Vector2(117, 120)
@@ -13,21 +14,29 @@ size = Vector2(549, 483)
 motion_mode = 1
 script = ExtResource("1_cp4sd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_045nu")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_bohep")
 
-[node name="AttackZone" type="Area2D" parent="."]
+[node name="Direction_Switch" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+[node name="Sprite2D" type="Sprite2D" parent="Direction_Switch"]
+texture = ExtResource("1_045nu")
+
+[node name="AttackZone" type="Area2D" parent="Direction_Switch"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_Switch/AttackZone"]
 position = Vector2(333.5, 300.5)
 shape = SubResource("RectangleShape2D_e1qbu")
 disabled = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Direction_Switch"]
 offset_left = 20.0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="RayCast2D" type="RayCast2D" parent="Direction_Switch"]
+target_position = Vector2(89, 0)
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("3_s5g3l")

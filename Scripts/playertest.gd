@@ -14,34 +14,52 @@ var is_accelerating = false  # Flag to track acceleration
 var acceleration_timer = 0.0  # Timer for acceleration
 var direction = 0.0
 
-var health_points = 3
+@export var health : int = 30
+
+@export var damage : int = 10
 
 @onready var text_box = $TextEdit #This is the text edit box
 @onready var enemy_test = $"../Enemy_test"
 @onready var animation = $AnimationPlayer
+@onready var ray_cast = $Direction_Switch/RayCast2D
 
 func _ready():
 	$Direction_Switch/AttackZone.connect("body_entered",_on_body_entered,CONNECT_PERSIST)
+	ray_cast.enabled = true
 
 func _on_body_entered(body):
 	if body is CharacterBody2D:
-		health_points -= 1
+		for child in body.get_children():
+			if child is Damageable:
+				child.hit(damage)
+
 
 func _physics_process(delta):
+	#Dead
+	if health <= 0:
+		queue_free()
 
-	text_box.text = str(health_points) #Displays health_points variable
+#Prevents accelerating into a wall, "takes damage" if hitting a wall at speed of 700
+	if ray_cast.is_colliding():
+		is_accelerating = false
+		if speed >= 700:
+			health -= 10
+		if speed >= 1100:
+			health -= 10
+			
+	text_box.text = str(health) #Displays health_points variable
 	
 	#Displays current velocity in output below when velocity.x is not showing 0
 	if velocity.x != 0:
 		print(velocity.x)
-	
-	
-	
+
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta + 1
 
+	
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -66,6 +84,7 @@ func _physics_process(delta):
 			speed = 300.0  # Reset speed when starting acceleration
 			is_accelerating = true
 			acceleration_timer = 0.0  # Reset acceleration timer
+
 
 
 		velocity.x = direction * speed

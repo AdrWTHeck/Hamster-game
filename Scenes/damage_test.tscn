@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmji678oom4w7"]
+[gd_scene load_steps=8 format=3 uid="uid://bmji678oom4w7"]
 
 [ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_p1tis"]
 [ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/player_character.tscn" id="2_l52bs"]
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="3_2bbw1"]
+[ext_resource type="PackedScene" uid="uid://phmgtne8cq2v" path="res://Scenes/bird_enemy.tscn" id="4_7ls6v"]
 [ext_resource type="PackedScene" uid="uid://b07lvyit002lu" path="res://Scenes/pickup.tscn" id="4_vdbmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ng6"]
@@ -46,18 +47,22 @@ shape = SubResource("RectangleShape2D_enhdh")
 [node name="Player_Character" parent="." instance=ExtResource("2_l52bs")]
 position = Vector2(-963, -47)
 
-[node name="Camera2D" type="Camera2D" parent="Player_Character"]
-
 [node name="TextEdit" type="TextEdit" parent="Player_Character"]
-offset_left = -545.0
-offset_top = -292.0
+offset_left = -549.0
+offset_top = -298.0
 offset_right = -352.0
-offset_bottom = -161.0
+offset_bottom = -154.0
+
+[node name="Camera2D" type="Camera2D" parent="Player_Character"]
 
 [node name="Enemy_test" parent="." instance=ExtResource("3_2bbw1")]
 position = Vector2(-477, -264)
 
+[node name="Bird_enemy" parent="." instance=ExtResource("4_7ls6v")]
+position = Vector2(-1637, -419)
+
 [node name="Pick_Up_Tests" type="Node2D" parent="."]
+position = Vector2(96, -10)
 
 [node name="Pickup" parent="Pick_Up_Tests" instance=ExtResource("4_vdbmx")]
 position = Vector2(-318, -267)

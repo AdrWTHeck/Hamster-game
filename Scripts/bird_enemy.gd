@@ -9,7 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready():
-	$AttackZone.connect("body_entered",_on_body_entered,CONNECT_PERSIST)
+	$Direction_Switch/AttackZone.connect("body_entered",_on_body_entered,CONNECT_PERSIST)
+	$Direction_Switch/RayCast2D.enabled = true
 
 	
 func _on_body_entered(body):
@@ -17,6 +18,14 @@ func _on_body_entered(body):
 
 func _physics_process(delta):
 	if direction == Vector2(-1,0):
-		$".".scale.x == -1
+		$Direction_Switch.scale.x = -1
+		
+	if direction == Vector2(1,0):
+		$Direction_Switch.scale.x = 1
+	
+	if $Direction_Switch/RayCast2D.is_colliding():
+		direction = -direction
+	
+
 	velocity.x = direction.x * SPEED
 	move_and_slide()
