@@ -77,10 +77,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		$Direction_Switch.scale.x = 1
 		animation.play("walk")
-	if not is_accelerating:
+	if not is_accelerating: 
+		speed = 300 # Fix insta kill bug when idle after reaching 700 speed and an enemy walks into you
 		animation.play("idle right")
 	if Input.is_action_pressed("ui_down"):
 		animation.play("Player_Test_Attack")
+	
 
 	 #Apply acceleration
 	if direction != 0:
