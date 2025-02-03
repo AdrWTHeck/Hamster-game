@@ -37,7 +37,7 @@ offset_bottom = -154.0
 position = Vector2(-477, -264)
 
 [node name="Bird_enemy" parent="." instance=ExtResource("4_7ls6v")]
-position = Vector2(-1637, -419)
+position = Vector2(-1683, -205)
 
 [node name="Pick_Up_Tests" type="Node2D" parent="."]
 position = Vector2(96, -10)
@@ -88,5 +88,5 @@ offset_bottom = 51752.0
 color = Color(0, 0.854902, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static Bodies/StaticBody2D"]
-position = Vector2(-3001, 22297.5)
+position = Vector2(-3000, 22297.5)
 shape = SubResource("RectangleShape2D_enhdh")

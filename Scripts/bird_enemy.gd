@@ -13,10 +13,10 @@ func _ready():
 	$Direction_Switch/RayCast2D.enabled = true
 
 	
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if direction == Vector2(-1,0):
 		$Direction_Switch.scale.x = -1
 		

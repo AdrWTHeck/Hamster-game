@@ -18,8 +18,7 @@ var direction = 0.0
 
 @export var damage : int = 10
 
-@onready var text_box = $TextEdit #This is the text edit box
-@onready var enemy_test = $"../Enemy_test"
+@onready var text_box = $TextEdit 
 @onready var animation = $AnimationPlayer
 @onready var ray_cast = $Direction_Switch/RayCast2D
 
