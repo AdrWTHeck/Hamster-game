@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b07lvyit002lu"]
+[gd_scene load_steps=5 format=3 uid="uid://d0gvua8iqfbk8"]
 
-[ext_resource type="Script" path="res://Scripts/pickup.gd" id="1_qy1a3"]
-[ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_wou34"]
+[ext_resource type="Script" path="res://Scripts/pickup.gd" id="1_c63y3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvhll"]
-size = Vector2(130, 131)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jhsr"]
+size = Vector2(45, 42)
 
 [sub_resource type="Animation" id="Animation_l74n8"]
 resource_name = "Pickup"
@@ -52,18 +51,22 @@ _data = {
 "Pickup": SubResource("Animation_l74n8")
 }
 
-[node name="Pickup" type="Area2D"]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("1_qy1a3")
+[node name="Sword_weapon" type="Area2D"]
+script = ExtResource("1_c63y3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_dvhll")
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_3jhsr")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("1_wou34")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = -3.0
+offset_top = -20.0
+offset_right = 3.0
+offset_bottom = 20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

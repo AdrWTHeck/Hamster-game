@@ -1,0 +1,112 @@
+[gd_scene load_steps=18 format=3 uid="uid://colu3bi1drdyw"]
+
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="1_c3mf1"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="2_pj3gr"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="3_oki6e"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_mof83"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_30cac"]
+
+[sub_resource type="Resource" id="Resource_xbyop"]
+script = ExtResource("2_pj3gr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_xyfjw"]
+script = ExtResource("3_oki6e")
+position = Vector2(-102, -22)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_xbyop")
+
+[sub_resource type="Resource" id="Resource_iafkd"]
+script = ExtResource("2_pj3gr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_v0td8"]
+script = ExtResource("3_oki6e")
+position = Vector2(201, -22)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_iafkd")
+
+[sub_resource type="Resource" id="Resource_l87bp"]
+script = ExtResource("2_pj3gr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ofh4c"]
+script = ExtResource("3_oki6e")
+position = Vector2(148, 140)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_l87bp")
+
+[sub_resource type="Resource" id="Resource_s8fig"]
+script = ExtResource("2_pj3gr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_s1vn6"]
+script = ExtResource("3_oki6e")
+position = Vector2(-44, 139)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_s8fig")
+
+[sub_resource type="Resource" id="Resource_27f58"]
+script = ExtResource("2_pj3gr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_imj2j"]
+script = ExtResource("3_oki6e")
+position = Vector2(-102, -22)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_27f58")
+
+[sub_resource type="Resource" id="Resource_p8aut"]
+script = ExtResource("4_mof83")
+_points = {
+0: SubResource("Resource_xyfjw"),
+1: SubResource("Resource_v0td8"),
+2: SubResource("Resource_ofh4c"),
+3: SubResource("Resource_s1vn6"),
+4: SubResource("Resource_imj2j")
+}
+_point_order = PackedInt32Array(0, 1, 2, 3, 4)
+_constraints = {
+Vector2i(0, 4): 15
+}
+_next_key = 5
+_material_overrides = {}
+tessellation_stages = 3
+tessellation_tolerance = 6.0
+curve_bake_interval = 20.0
+
+[sub_resource type="Resource" id="Resource_jgywo"]
+script = ExtResource("5_30cac")
+_edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
+fill_textures = Array[Texture2D]([])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_texture_scale = 1.0
+fill_texture_absolute_position = false
+fill_texture_absolute_rotation = false
+fill_texture_offset = Vector2(0, 0)
+fill_texture_angle_offset = 0.0
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SS2D_Shape" type="Node2D" parent="."]
+script = ExtResource("1_c3mf1")
+_points = SubResource("Resource_p8aut")
+shape_material = SubResource("Resource_jgywo")

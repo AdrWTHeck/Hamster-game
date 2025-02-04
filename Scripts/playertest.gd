@@ -34,11 +34,15 @@ func _on_body_entered(body):
 
 
 func _physics_process(delta):
+		#Displays current velocity in output below when velocity.x is not showing 0
+	if velocity.x != 0:
+		print(velocity.x)
+		
 	#Dead
 	if health <= 0:
 		queue_free()
 
-#Prevents accelerating into a wall, "takes damage" if hitting a wall at speed of 700
+#Prevents accelerating into a wall, "takes damage" if hitting a wall at speed of 700 or more
 	if ray_cast.is_colliding():
 		is_accelerating = false
 		if speed >= 700:
@@ -48,9 +52,7 @@ func _physics_process(delta):
 			
 	text_box.text = str(health) #Displays health_points variable
 	
-	#Displays current velocity in output below when velocity.x is not showing 0
-	if velocity.x != 0:
-		print(velocity.x)
+
 
 # Running will damage enemies at certain speeds
 	if speed >= 700:
@@ -81,7 +83,8 @@ func _physics_process(delta):
 		speed = 300 # Fix insta kill bug when idle after reaching 700 speed and an enemy walks into you
 		animation.play("idle right")
 	if Input.is_action_pressed("ui_down"):
-		animation.play("Player_Test_Attack")
+		if $Direction_Switch/Node2D.visible == true:
+			animation.play("Player_Test_Attack")
 	
 
 	 #Apply acceleration
@@ -90,6 +93,7 @@ func _physics_process(delta):
 			speed = 300.0  # Reset speed when starting acceleration
 			is_accelerating = true
 			acceleration_timer = 0.0  # Reset acceleration timer
+
 
 
 

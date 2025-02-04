@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmji678oom4w7"]
+[gd_scene load_steps=11 format=3 uid="uid://bmji678oom4w7"]
 
 [ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_p1tis"]
 [ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/player_character.tscn" id="2_l52bs"]
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="3_2bbw1"]
 [ext_resource type="PackedScene" uid="uid://phmgtne8cq2v" path="res://Scenes/bird_enemy.tscn" id="4_7ls6v"]
 [ext_resource type="PackedScene" uid="uid://b07lvyit002lu" path="res://Scenes/pickup.tscn" id="4_vdbmx"]
+[ext_resource type="PackedScene" uid="uid://c5htbys5sxpg0" path="res://Scenes/Weapons/ball_weapon.tscn" id="6_m34d6"]
+[ext_resource type="PackedScene" uid="uid://d0gvua8iqfbk8" path="res://Scenes/Weapons/sword_weapon.tscn" id="7_io22r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erlq5"]
 size = Vector2(179, 160.5)
@@ -50,6 +52,12 @@ position = Vector2(-1344, -56)
 
 [node name="Pickup3" parent="Pick_Up_Tests" instance=ExtResource("4_vdbmx")]
 position = Vector2(-562, -49)
+
+[node name="Ball_Weapon" parent="Pick_Up_Tests" instance=ExtResource("6_m34d6")]
+position = Vector2(-1819, -48)
+
+[node name="Sword_weapon" parent="Pick_Up_Tests" instance=ExtResource("7_io22r")]
+position = Vector2(91, -258)
 
 [node name="Static Bodies" type="Node2D" parent="."]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b73awtafuget8"]
+[gd_scene load_steps=9 format=3 uid="uid://b73awtafuget8"]
 
 [ext_resource type="Script" path="res://Scripts/playertest.gd" id="1_fgrdf"]
 [ext_resource type="Texture2D" uid="uid://cu01atocjxvk2" path="res://Sprites/IMG_0599 (1).PNG" id="2_6x31y"]
+[ext_resource type="Script" path="res://Scripts/Weapon.gd" id="3_hjfae"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0i6pa"]
 radius = 29.2746
@@ -95,3 +96,6 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_fevej")
 }
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("3_hjfae")
