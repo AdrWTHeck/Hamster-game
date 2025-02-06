@@ -77,6 +77,13 @@ texture = ExtResource("2_6x31y")
 [node name="RayCast2D" type="RayCast2D" parent="Direction_Switch"]
 target_position = Vector2(30, 0)
 
+[node name="AttackZone" type="Area2D" parent="Direction_Switch"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_Switch/AttackZone"]
+position = Vector2(43, 1.5)
+shape = SubResource("RectangleShape2D_1ipgk")
+disabled = true
+
 [node name="Node2D" type="Node2D" parent="Direction_Switch"]
 
 [node name="ColorRect" type="ColorRect" parent="Direction_Switch/Node2D"]
@@ -84,13 +91,6 @@ offset_left = 2.0
 offset_top = -52.0
 offset_right = 8.0
 offset_bottom = -12.0
-
-[node name="AttackZone" type="Area2D" parent="Direction_Switch"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_Switch/AttackZone"]
-position = Vector2(43, 1.5)
-shape = SubResource("RectangleShape2D_1ipgk")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
