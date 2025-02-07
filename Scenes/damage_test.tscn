@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmji678oom4w7"]
+[gd_scene load_steps=11 format=3 uid="uid://b26rnf0m887f3"]
 
-[ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_p1tis"]
-[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/player_character.tscn" id="2_l52bs"]
+[ext_resource type="Texture2D" uid="uid://byndok5crppb5" path="res://Sprites/icon.svg" id="1_p1tis"]
+[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/player_character.tscn" id="2_7348p"]
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="3_2bbw1"]
 [ext_resource type="PackedScene" uid="uid://phmgtne8cq2v" path="res://Scenes/bird_enemy.tscn" id="4_7ls6v"]
 [ext_resource type="PackedScene" uid="uid://b07lvyit002lu" path="res://Scenes/pickup.tscn" id="4_vdbmx"]
@@ -24,14 +24,14 @@ texture_repeat = 2
 texture = ExtResource("1_p1tis")
 polygon = PackedVector2Array(-107335, -49267, -107719, 15373, 123560, 17293, 122920, -49523)
 
-[node name="Player_Character" parent="." instance=ExtResource("2_l52bs")]
-position = Vector2(-963, -47)
+[node name="Player_Character" parent="." instance=ExtResource("2_7348p")]
+position = Vector2(-896, -90)
 
 [node name="TextEdit" type="TextEdit" parent="Player_Character"]
-offset_left = -549.0
-offset_top = -298.0
-offset_right = -352.0
-offset_bottom = -154.0
+offset_left = -540.0
+offset_top = -286.0
+offset_right = -343.0
+offset_bottom = -142.0
 
 [node name="Camera2D" type="Camera2D" parent="Player_Character"]
 

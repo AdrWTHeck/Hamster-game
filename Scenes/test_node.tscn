@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b73awtafuget8"]
+[gd_scene load_steps=8 format=3 uid="uid://b73awtafuget8"]
 
 [ext_resource type="Script" path="res://Scripts/playertest.gd" id="1_fgrdf"]
-[ext_resource type="Texture2D" uid="uid://di15ob1dvjlc0" path="res://Sprites/Untitled_Artwork(18).png" id="2_m52y0"]
 
 [sub_resource type="Animation" id="Animation_occde"]
 resource_name = "idle left"
@@ -87,7 +86,6 @@ script = ExtResource("1_fgrdf")
 texture_filter = 1
 position = Vector2(-14, -1)
 scale = Vector2(1.15957, 1)
-texture = ExtResource("2_m52y0")
 hframes = 2
 vframes = 4
 frame = 1
