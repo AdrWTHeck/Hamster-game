@@ -1,11 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://b26rnf0m887f3"]
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://byndok5crppb5" path="res://Sprites/icon.svg" id="1_p1tis"]
 =======
 [ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_p1tis"]
 >>>>>>> 0973b1dab4b5a41dd5b457ed20d87621dbf53b58
 [ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="2_7348p"]
+=======
+[ext_resource type="Texture2D" uid="uid://byndok5crppb5" path="res://Sprites/icon.svg" id="1_p1tis"]
+[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="2_l52bs"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="3_2bbw1"]
 [ext_resource type="PackedScene" uid="uid://phmgtne8cq2v" path="res://Scenes/bird_enemy.tscn" id="4_7ls6v"]
 [ext_resource type="PackedScene" uid="uid://b07lvyit002lu" path="res://Scenes/pickup.tscn" id="4_vdbmx"]
