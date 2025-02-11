@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b26rnf0m887f3"]
 
 [ext_resource type="Texture2D" uid="uid://byndok5crppb5" path="res://Sprites/icon.svg" id="1_p1tis"]
-[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/player_character.tscn" id="2_7348p"]
+[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="2_7348p"]
 [ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="3_2bbw1"]
 [ext_resource type="PackedScene" uid="uid://phmgtne8cq2v" path="res://Scenes/bird_enemy.tscn" id="4_7ls6v"]
 [ext_resource type="PackedScene" uid="uid://b07lvyit002lu" path="res://Scenes/pickup.tscn" id="4_vdbmx"]
@@ -21,6 +21,7 @@ size = Vector2(237104, 44615)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture_repeat = 2
+position = Vector2(6, 6)
 texture = ExtResource("1_p1tis")
 polygon = PackedVector2Array(-107335, -49267, -107719, 15373, 123560, 17293, 122920, -49523)
 
@@ -96,5 +97,5 @@ offset_bottom = 51752.0
 color = Color(0, 0.854902, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static Bodies/StaticBody2D"]
-position = Vector2(-3000, 22297.5)
+position = Vector2(-2979, 22309)
 shape = SubResource("RectangleShape2D_enhdh")
