@@ -9,9 +9,7 @@ func _ready():
 	$".".connect("body_entered",_on_body_entered,CONNECT_PERSIST)
 
 func _on_body_entered(body):
-	var name = $".".name
+
 	if body.name == "Player_Character":
 		animation_player.play("Pickup")
-		for child in body.get_children():
-			if child is Weapon:
-				child.weapon_change(name)
+		

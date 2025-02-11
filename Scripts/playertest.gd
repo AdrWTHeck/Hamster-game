@@ -57,7 +57,7 @@ func _physics_process(delta):
 # Running will damage enemies at certain speeds
 	if speed >= 700:
 		$Direction_Switch/AttackZone/CollisionShape2D.disabled = false
-	if (speed <= 700) and (speed >= 400):
+	if (speed < 700):
 		$Direction_Switch/AttackZone/CollisionShape2D.disabled = true
 	
 	# Add the gravity.
@@ -82,9 +82,7 @@ func _physics_process(delta):
 	if not is_accelerating: 
 		speed = 300 # Fix insta kill bug when idle after reaching 700 speed and an enemy walks into you
 		animation.play("idle right")
-	if Input.is_action_pressed("ui_down"):
-		if $Direction_Switch/Node2D.visible == true:
-			animation.play("Player_Test_Attack")
+
 	
 
 	 #Apply acceleration
