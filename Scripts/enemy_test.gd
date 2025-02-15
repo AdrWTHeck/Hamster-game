@@ -35,7 +35,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		$Direction_Switch.scale.x = -$Direction_Switch.scale.x
+
 	if not $Direction_Switch/RayCastDown.is_colliding():
 		direction = -direction
 		$Direction_Switch.scale.x = -$Direction_Switch.scale.x

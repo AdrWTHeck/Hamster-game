@@ -1,102 +1,88 @@
-[gd_scene load_steps=9 format=3 uid="uid://b26rnf0m887f3"]
+[gd_scene load_steps=9 format=3 uid="uid://ck2i6opcxodke"]
 
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://byndok5crppb5" path="res://Sprites/icon.svg" id="1_p1tis"]
-=======
-[ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_p1tis"]
->>>>>>> 0973b1dab4b5a41dd5b457ed20d87621dbf53b58
-[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="2_7348p"]
-=======
-[ext_resource type="Texture2D" uid="uid://byndok5crppb5" path="res://Sprites/icon.svg" id="1_p1tis"]
-[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/test_node.tscn" id="2_l52bs"]
->>>>>>> Stashed changes
-[ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="3_2bbw1"]
-[ext_resource type="PackedScene" uid="uid://phmgtne8cq2v" path="res://Scenes/bird_enemy.tscn" id="4_7ls6v"]
-[ext_resource type="PackedScene" uid="uid://b07lvyit002lu" path="res://Scenes/pickup.tscn" id="4_vdbmx"]
+[ext_resource type="Texture2D" uid="uid://c0qlrp8opp3d0" path="res://Sprites/icon.svg" id="1_ugr5d"]
+[ext_resource type="PackedScene" uid="uid://b73awtafuget8" path="res://Scenes/player_character.tscn" id="2_re2oo"]
+[ext_resource type="PackedScene" uid="uid://c7fcg4ysegjot" path="res://Scenes/enemy_test.tscn" id="3_nndl6"]
+[ext_resource type="PackedScene" uid="uid://b07lvyit002lu" path="res://Scenes/pickup.tscn" id="4_ocxkh"]
+[ext_resource type="PackedScene" uid="uid://phmgtne8cq2v" path="res://Scenes/bird_enemy.tscn" id="5_7lije"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_erlq5"]
-size = Vector2(179, 160.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpxhq"]
+size = Vector2(130.206, 168.036)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ng6"]
-size = Vector2(893, 72)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yosuf"]
+size = Vector2(245632, 73773.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_enhdh"]
-size = Vector2(237104, 44615)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyi01"]
+size = Vector2(808.911, 42.0024)
 
 [node name="Damage_test" type="Node2D"]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture_repeat = 2
-position = Vector2(6, 6)
-texture = ExtResource("1_p1tis")
-polygon = PackedVector2Array(-107335, -49267, -107719, 15373, 123560, 17293, 122920, -49523)
+position = Vector2(-67072, 0)
+texture = ExtResource("1_ugr5d")
+polygon = PackedVector2Array(-2961, -51847, 163603, -53502.8, 164755, -638.824, 10863, 2273)
 
-[node name="Player_Character" parent="." instance=ExtResource("2_7348p")]
-position = Vector2(-896, -90)
+[node name="Wall" type="StaticBody2D" parent="."]
 
-[node name="TextEdit" type="TextEdit" parent="Player_Character"]
-offset_left = -540.0
-offset_top = -286.0
-offset_right = -343.0
-offset_bottom = -142.0
+[node name="ColorRect" type="ColorRect" parent="Wall"]
+offset_left = 2290.0
+offset_top = -163.0
+offset_right = 2420.0
+offset_bottom = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(2355.58, -80.396)
+shape = SubResource("RectangleShape2D_bpxhq")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -67072.0
+offset_right = 109813.0
+offset_bottom = 50729.0
+color = Color(0, 0.913725, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(54973.5, 36886.7)
+shape = SubResource("RectangleShape2D_yosuf")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_left = -522.0
+offset_top = -125.0
+offset_right = 287.0
+offset_bottom = -83.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-117.409, -104.111)
+shape = SubResource("RectangleShape2D_wyi01")
+
+[node name="Player_Character" parent="." instance=ExtResource("2_re2oo")]
+position = Vector2(-587.596, -38.6616)
 
 [node name="Camera2D" type="Camera2D" parent="Player_Character"]
 
-[node name="Enemy_test" parent="." instance=ExtResource("3_2bbw1")]
-position = Vector2(-477, -264)
+[node name="TextEdit" type="TextEdit" parent="Player_Character"]
+offset_left = -557.051
+offset_top = -304.99
+offset_right = -395.051
+offset_bottom = -189.99
 
-[node name="Bird_enemy" parent="." instance=ExtResource("4_7ls6v")]
-position = Vector2(-1683, -205)
+[node name="Enemy_test" parent="." instance=ExtResource("3_nndl6")]
+position = Vector2(-475.304, -168.958)
 
-[node name="Pick_Up_Tests" type="Node2D" parent="."]
-position = Vector2(96, -10)
+[node name="PickUps" type="Node2D" parent="."]
 
-[node name="Pickup" parent="Pick_Up_Tests" instance=ExtResource("4_vdbmx")]
-position = Vector2(-318, -267)
+[node name="Pickup" parent="PickUps" instance=ExtResource("4_ocxkh")]
+position = Vector2(-711.559, -42.6456)
 
-[node name="Pickup2" parent="Pick_Up_Tests" instance=ExtResource("4_vdbmx")]
-position = Vector2(-1344, -56)
+[node name="Pickup2" parent="PickUps" instance=ExtResource("4_ocxkh")]
+position = Vector2(132.451, -166.124)
 
-[node name="Pickup3" parent="Pick_Up_Tests" instance=ExtResource("4_vdbmx")]
-position = Vector2(-562, -49)
+[node name="Pickup3" parent="PickUps" instance=ExtResource("4_ocxkh")]
+position = Vector2(754.294, -35.9188)
 
-[node name="Static Bodies" type="Node2D" parent="."]
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Static Bodies"]
-position = Vector2(-91, -88)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static Bodies/StaticBody2D3"]
-position = Vector2(1170, 19.25)
-shape = SubResource("RectangleShape2D_erlq5")
-
-[node name="ColorRect" type="ColorRect" parent="Static Bodies/StaticBody2D3"]
-offset_left = 1078.0
-offset_top = -60.0
-offset_right = 1270.0
-offset_bottom = 112.0
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Static Bodies"]
-position = Vector2(-137, -328)
-
-[node name="ColorRect" type="ColorRect" parent="Static Bodies/StaticBody2D2"]
-offset_left = -473.0
-offset_top = 112.0
-offset_right = 419.0
-offset_bottom = 182.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static Bodies/StaticBody2D2"]
-position = Vector2(-28.5, 147)
-shape = SubResource("RectangleShape2D_u7ng6")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Static Bodies"]
-
-[node name="ColorRect" type="ColorRect" parent="Static Bodies/StaticBody2D"]
-offset_left = -99840.0
-offset_right = 123688.0
-offset_bottom = 51752.0
-color = Color(0, 0.854902, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static Bodies/StaticBody2D"]
-position = Vector2(-2979, 22309)
-shape = SubResource("RectangleShape2D_enhdh")
+[node name="Bird_enemy" parent="." instance=ExtResource("5_7lije")]
+position = Vector2(772.236, -277.408)
